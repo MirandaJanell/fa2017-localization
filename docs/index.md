@@ -1,23 +1,27 @@
-#Localization in Apex and Visualforce
+# Localization in Apex and Visualforce
 
-Page 1
-<code>
+## Example 1
+
+### Page 1
+
+```
 <apex:page>
   <apex:form>
     <h1>Hello, <apex:outputText value="{!name}" /></h1>
     <apex:outputLabel value="Name" />
     <apex:inputText value="{!name}" />
-    <apex:commandButton action="{!submit} value="Submit" />
+    <apex:commandButton action="{!submit}" value="Submit" />
   </apex:form>
 </apex:page>
-</code>
+```
 
-Controller 1
-<code>
+### Controller 1
+
+``` apex
 public class Controller1 {
   public String name { get; set; }
   
-  Controller1 {
+  public Controller1 {
     name = 'World';
   }
   
@@ -25,4 +29,4 @@ public class Controller1 {
     // do some processing
   }
 }
-</code>
+```
