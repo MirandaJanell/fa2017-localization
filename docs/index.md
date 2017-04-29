@@ -1,13 +1,19 @@
 # Localization in Apex and Visualforce
 
 ## Instructions
-Turn on Developer Mode
+
+Turn on Developer Mode  
+Navigate to /apex/LocalizationEx  
+Click the Create Page LocalizationEx link.  
+Change the first line to `<apex:page controller="LocalizationExController">`  
+Click the Save icon.  
+Click the Create Apex class 'public with sharing class LocalizationExController' link.  
 
 ## Example 1
 
 ### Controller: LocalizationExController.cls
 
-    public class LocalizationExController {
+    public with sharing class LocalizationExController {
       public String name { get; set; }
       
       public LocalizationExController() {
@@ -46,7 +52,7 @@ Turn on Developer Mode
 
 ### Controller: LocalizationExController.cls
 
-    public class LocalizationExController {
+    public with sharing class LocalizationExController {
       public String name { get; set; }
       
       public LocalizationEx2Controller() {
