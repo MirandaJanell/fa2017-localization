@@ -2,6 +2,8 @@
 
 ## Instructions
 
+This example is meant to be done in a Developer org.
+
 ### Quickly Creating Pages
 Edit your user record and set Developer Mode to checked.  
 Navigate to /apex/LocalizationDemo  
@@ -13,6 +15,7 @@ Click the Create Apex class 'public with sharing class LocalizationDemoControlle
 ## Example 1 : Basic Page and Controller
 
 ### Controller
+
 Update the LocalizationDemoController class with the following code.
 
     public with sharing class LocalizationDemoController {
@@ -30,6 +33,7 @@ Update the LocalizationDemoController class with the following code.
 Click the Save icon.
 
 ### Page
+
 Update the LocalizationDemo page with the following markup.
 
     <apex:page controller="LocalizationDemoController" standardStylesheets="false">
@@ -84,6 +88,7 @@ Update the LocalizationDemoController class with the following code.
     }
 
 ### Page
+
 Update the LocalizationDemo page with the following markup.
 
     <apex:page controller="LocalizationDemoController" standardStylesheets="false">
@@ -122,3 +127,12 @@ Click the Translate link and explore the various options. You will not find Cust
 | Code Word         | Code_Word     | Astro         |              |
 | Special Name      | Special_Name  | Ohana         |              |
 
+## Testing
+
+Create a second user and set their laguage to French.  
+Login as the new user.  
+Navigate to /apex/LocalizationDemo and voilà!  
+
+## Notes
+
+* Translations should be done by professional translators, not a full time developer who took two years of French in High School.
