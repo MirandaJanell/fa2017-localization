@@ -127,6 +127,8 @@ Click the Translate link and explore the various options. You will not find Cust
 | Code Word         | Code_Word     | Astro         |              |
 | Special Name      | Special_Name  | Ohana         |              |
 
+Code Word and Special Name are consistent across languages and will not be translated.
+
 ## Testing
 
 Create a second user and set their laguage to French.  
