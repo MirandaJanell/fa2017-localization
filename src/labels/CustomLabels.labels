@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Code_Word</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Code Word</shortDescription>
+        <value>Astro</value>
+    </labels>
+    <labels>
+        <fullName>Default_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Default Name</shortDescription>
+        <value>World</value>
+    </labels>
+    <labels>
+        <fullName>Greeting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Greeting</shortDescription>
+        <value>Hello, {0}!</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>Special_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Special Name</shortDescription>
+        <value>Ohana</value>
+    </labels>
+    <labels>
+        <fullName>Submit_Button</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit Button</shortDescription>
+        <value>Submit</value>
+    </labels>
+</CustomLabels>

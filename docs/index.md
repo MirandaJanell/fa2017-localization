@@ -2,21 +2,23 @@
 
 ## Instructions
 
-Turn on Developer Mode  
-Navigate to /apex/LocalizationEx  
-Click the Create Page LocalizationEx link.  
-Change the first line to `<apex:page controller="LocalizationExController">`  
+### Quickly Creating Pages
+Edit your user record and set Developer Mode to checked.  
+Navigate to /apex/LocalizationDemo  
+Click the "Create Page LocalizationDemo" link.  
+Change the first line to `<apex:page controller="LocalizationDemoController">`  
 Click the Save icon.  
-Click the Create Apex class 'public with sharing class LocalizationExController' link.  
+Click the Create Apex class 'public with sharing class LocalizationDemoController' link.  
 
-## Example 1
+## Example 1 : Basic Page and Controller
 
-### Controller: LocalizationExController.cls
+### Controller
+Update the LocalizationDemoController class with the following code.
 
-    public with sharing class LocalizationExController {
+    public with sharing class LocalizationDemoController {
       public String name { get; set; }
       
-      public LocalizationExController() {
+      public LocalizationDemoController() {
         name = 'World';
       }
       
@@ -25,54 +27,98 @@ Click the Create Apex class 'public with sharing class LocalizationExController'
       }
     }
 
-### Page: LocalizationEx.page
+Click the Save icon.
 
-    <apex:page controller="LocalizationExController">
-      <apex:form>
-        <h1>Hello, <apex:outputText value="{!name}" /></h1>
-        <apex:outputLabel value="Name" />
-        <apex:inputText value="{!name}" />
-        <apex:commandButton action="{!submit}" value="Submit" />
+### Page
+Update the LocalizationDemo page with the following markup.
+
+    <apex:page controller="LocalizationDemoController" standardStylesheets="false">
+      <apex:form >
+        <h1>Hello, <apex:outputText value="{!name}" />!</h1><br />
+        
+        <apex:outputLabel for="name" value="Name" />:
+        <apex:inputText id="name" value="{!name}" /><br />
+        
+        <apex:commandButton action="{!submit}" value="Submit" rerender="greeting" />
       </apex:form>
     </apex:page>
 
+Click the save icon.
 
-## Example 2
+## Example 2 : Localization Ready Page and Controller
 
-### Labels
+### Custom Labels
 
-| Short Description         | Name           | Value      |
-|---------------------------|----------------|------------|
-| Greeting                  | Greeting       | Hello      |
-| First Name Label          | LabelFirstName | First Name |
-| Submit Button Label       | ButtonSubmit   | Submit     |
-| Default Name              | DefaultName    | World      |
-| Special Substitution Name | SpecialName    | Friend     |
-| Code Word                 | CodeWord       | *****      |
+Enter the Setup interface
 
-### Controller: LocalizationExController.cls
+* In the Lightning Experience navigate to User Interface > Custom Labels.
+* In Salesforce Classic navigate to Build > Create > Custom Labels.
+* Quick Find "Custom Labels" works in either experience.
 
-    public with sharing class LocalizationExController {
+Create Custom Labels with the following values.
+
+| Short Description | Name          | Value       |
+|-------------------|---------------|-------------|
+| Greeting          | Greeting      | Hello, {0}! |
+| Name              | Name          | Name        |
+| Submit Button     | Submit_Button | Submit      |
+| Default Name      | Default_Name  | World       |
+| Code Word         | Code_Word     | Astro       |
+| Special Name      | Special_Name  | Ohana       |
+
+### Controller
+Update the LocalizationDemoController class with the following code.
+
+    public with sharing class LocalizationDemoController {
       public String name { get; set; }
-      
-      public LocalizationEx2Controller() {
-        name = System.Label.DefaultName;
+
+      public LocalizationDemoController() {
+        name = System.Label.Default_Name;
       }
-      
+
       public void submit() {
-        if(String.isNotBlank(name) && name.equalsIgnoreCase(System.Label.CodeWord)) {
-          name = System.Label.SpecialName;
+        if(String.isNotBlank(name) && name.equalsIgnoreCase(System.Label.Code_Word)) {
+          name = System.Label.Special_Name;
         }
       }
     }
 
-### Page: LocalizationEx.page
+### Page
+Update the LocalizationDemo page with the following markup.
 
-    <apex:page controller="LocalizationEx2Controller">
-      <apex:form>
-        <h1>{!$Label.Greeting}, <apex:outputText value="{!name}" /></h1>
-        <apex:outputLabel value="{!$Label.LabelFirstName}" />
-        <apex:inputText value="{!name}" />
-        <apex:commandButton action="{!submit}" value="{!$Label.BtnSubmit}" />
+    <apex:page controller="LocalizationDemoController" standardStylesheets="false">
+      <apex:form >
+        <h1><apex:outputText id="greeting" value="{!$Label.Greeting}">
+          <apex:param value="{!name}" />
+        </apex:outputText></h1><br />
+        
+        <apex:outputLabel for="name" value="{!$Label.Name}" />:
+        <apex:inputText id="name" value="{!name}" /><br />
+        
+        <apex:commandButton action="{!submit}" value="{!$Label.Submit_Button}" rerender="greeting" />
       </apex:form>
     </apex:page>
+
+## Example 3: Translastion
+
+To enable the Translation Workbench, enter the Setup interface and configure your Translation Settings.
+
+* In the Lightning Experience navigate to User Interface > Translation Workbench > Translation Settings.
+* In Salesforce Classic navigate to Administer > Translation Workbench > Translation Settings.
+* Quick Find "Translation Settings" works in either experience.
+
+Click the Enable button if Translation Workbench is not already enabled.  
+Add a Supported Language and select the Users to be the translators for this language and click Save. French will be used for this example.  
+
+Click the Translate link and explore the various options. You will not find Custom Labels under the Setup Component picklist. The options for translating Custom Labels are on the Custom Label detail page. Modify your Custom Labels with the values below.
+
+
+| Short Description | Name          | English Value | French Value |
+|-------------------|---------------|---------------|---------------
+| Greeting          | Greeting      | Hello, {0}!   | Bonjour {0}! |
+| Name              | Name          | Name          | Nom          |
+| Submit Button     | Submit_Button | Submit        | Soumettre    |
+| Default Name      | Default_Name  | World         | Monde        |
+| Code Word         | Code_Word     | Astro         |              |
+| Special Name      | Special_Name  | Ohana         |              |
+

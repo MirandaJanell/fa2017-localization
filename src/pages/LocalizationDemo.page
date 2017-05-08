@@ -1,0 +1,10 @@
+<apex:page controller="LocalizationDemoController" standardStylesheets="false">
+    <apex:form >
+        <h1><apex:outputText id="greeting" value="{!$Label.Greeting}"><apex:param value="{!name}" /></apex:outputText></h1><br />
+        
+        <apex:outputLabel for="name" value="{!$Label.Name}" />:
+        <apex:inputText id="name" value="{!name}" /><br />
+        
+        <apex:commandButton action="{!submit}" value="{!$Label.Submit_Button}" rerender="greeting" />
+    </apex:form>
+</apex:page>
