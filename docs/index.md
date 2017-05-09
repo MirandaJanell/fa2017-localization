@@ -4,6 +4,8 @@
 
 This example is meant to be done in a Developer org.
 
+Now that the Force Academy 2017 event has concluded I will be making updates to these instructions to fully flesh them out. These updates should be coming in the next couple days after I catch up on some backlogged work. Please stay tuned for updates.
+
 ### Quickly Creating Pages
 Edit your user record and set Developer Mode to checked.  
 Navigate to /apex/LocalizationDemo  
@@ -38,7 +40,7 @@ Update the LocalizationDemo page with the following markup.
 
     <apex:page controller="LocalizationDemoController" standardStylesheets="false">
       <apex:form >
-        <h1>Hello, <apex:outputText value="{!name}" />!</h1><br />
+        <h1>Hello, <apex:outputText id="greeting" value="{!name}" />!</h1><br />
         
         <apex:outputLabel for="name" value="Name" />:
         <apex:inputText id="name" value="{!name}" /><br />
